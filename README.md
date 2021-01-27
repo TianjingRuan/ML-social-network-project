@@ -18,19 +18,19 @@ All data will be available in raw text. The training graph data will given in a 
 4 3 5 1  
 represents the network illustrated in the figure below.
 
-<img src="network.png" alt="network figure">
+<img src="network.png" height=50% width=50%" alt="network figure">
 
 The test edge set is in a (tab-delimited) edge list format, where each represents an edge (source node, target node). Given this 2,000-row edge list, our implemented algorithm should take the test list in and return a 2,001 row CSV file that has a) in the first row, the string “Id,Predicted”; b) in all subsequent rows, a consecutive integer ID a comma then a float in the range [0,1]. These floats are “guesses” or predictions as to whether the corresponding test edge was from the Twitter network or not. Higher predictions correspond to being more confident that the edge is real.  
 For example, given the test edge set of {(3, 1), (3, 4)} as represented in CSV format by  
 Id,Source,Sink  
-1,3,1  
-2,3,4  
+1, 3, 1  
+2, 3, 4  
 if your prediction probabilities are 0.1 for edge (3,1), 0.99 for edge (3,4), then your output file should be:  
 Id,Predicted  
-1,0.1   
-2,0.99 
+1, 0.1   
+2, 0.99 
 
 The test set will be used to generate an area under ROC curve (AUC) for performance
 
-Notes: DataGeneration.py generates data from train.txt in the form of source, sink and link probability. CombineCSV.py combines CSV files by Python pandas. 
+Note: DataGeneration.py generates data from train.txt in the form of source, sink and link probability. CombineCSV.py combines CSV files by Python pandas. 
 main.ipynb contains codes and brief description of methodology we used for link prediction.
